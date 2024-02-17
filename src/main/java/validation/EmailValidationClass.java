@@ -2,12 +2,11 @@ package validation;
 
 import context.UserControlContext;
 import context.ValidationResult;
-import service.IUserControlService;
 
-public class EmailValidationClass implements IUserControlService<UserControlContext> {
+public class EmailValidationClass extends AbstractValidationChain<UserControlContext> {
 
     @Override
-    public ValidationResult validate(UserControlContext context) {
+    public ValidationResult execute(UserControlContext context) {
         System.out.println("validation.EmailValidationClass");
         return ValidationResult.Builder.getBuilder()
                 .isResultSuccess(false)
